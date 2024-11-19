@@ -19,6 +19,7 @@ affiliations:
     index: 2
 date: 28 August 2024
 cito-bibliography: paper.bib
+group: Other
 event: BH24JP
 biohackathon_name: "DBCLS BioHackathon Japan 2024"
 biohackathon_url:   "https://2024.biohackathon.org/"
