@@ -9,13 +9,18 @@ authors:
   - name: David Steinberg
     affiliation: 1
     orcid: 0000-0001-6683-2270
+  - name: Jerven Bolleman
+    affiliation: 2
+    orcid: 0000-0002-7449-1266
 affiliations:
   - name: University of California, Santa Cruz, Genomics Institute
     index: 1
+  - name: Swiss Institute of Bioinformatics
+    index: 2
 date: 28 August 2024
 cito-bibliography: paper.bib
 event: BH24JP
-biohackathon_name: "BioHackathon Japan 2024"
+biohackathon_name: "DBCLS BioHackathon Japan 2024"
 biohackathon_url:   "https://2024.biohackathon.org/"
 biohackathon_location: "Fukushima, Japan, 2024"
 # URL to project git repo --- should contain the actual paper.md:
