@@ -28,12 +28,12 @@ biohackathon_location: "Fukushima, Japan, 2024"
 git_url: https://github.com/david4096/huggingface-rdf
 # This is the short authors description that is used at the
 # bottom of the generated paper (typically the first two authors):
-authors_short: David Steinberg
+authors_short: David Steinberg, Jerven Bolleman
 ---
 
 # Abstract
 
-At BioHackathon 2024 in Fukushima, we explored enhancing machine learning dataset metadata management by developing a tool for converting the Croissant ML format from MLCommons, implemented on Hugging Face[UnknownUnknown-ll] and expressed in JSON-LD, into RDF using Turtle format. This allowed us to load the data into triple stores like Qlever and Apache Jena Fuseki, improving interoperability and querying capabilities. RDF's graph-based structure and SPARQL querying enable advanced integration and analysis across heterogeneous datasets, addressing challenges like blank nodes, undefined ontologies, and non-resolvable URIs in the Croissant schema. Despite its alignment with ML workflows, Croissant's limited connection to controlled vocabularies and lack of resolvable URLs highlight interoperability challenges compared to other metadata standards. Feedback emphasized the need for more detailed metadata specifications, meaningful annotations, and extensibility while recognizing Croissant’s potential for advancing metadata management in machine learning and bioinformatics. This approach underscores the value of standardizing and extending metadata frameworks and tools to facilitate dataset discovery, reproducibility, and integration across diverse domains.
+At BioHackathon 2024 in Fukushima, we explored enhancing machine learning dataset metadata management by developing a tool for converting the Croissant ML format from MLCommons, implemented on Hugging Face[@UnknownUnknown-ll] and expressed in JSON-LD, into RDF using Turtle format. This allowed us to load the data into triple stores like Qlever and Apache Jena Fuseki, improving interoperability and querying capabilities. RDF's graph-based structure and SPARQL querying enable advanced integration and analysis across heterogeneous datasets, addressing challenges like blank nodes, undefined ontologies, and non-resolvable URIs in the Croissant schema. Despite its alignment with ML workflows, Croissant's limited connection to controlled vocabularies and lack of resolvable URLs highlight interoperability challenges compared to other metadata standards. Feedback emphasized the need for more detailed metadata specifications, meaningful annotations, and extensibility while recognizing Croissant’s potential for advancing metadata management in machine learning and bioinformatics. This approach underscores the value of standardizing and extending metadata frameworks and tools to facilitate dataset discovery, reproducibility, and integration across diverse domains.
 
 #  Introduction
 
@@ -63,11 +63,11 @@ Federation using SPARQL enables querying over distributed datasets, providing a 
 
 In addition to Hugging Face, Croissant has been integrated into several major dataset repositories, including Google Dataset Search, Kaggle, and OpenML. These integrations enhance dataset discoverability and accessibility by allowing users to search for Croissant-formatted datasets across various platforms. The adoption of Croissant by these repositories highlights its growing significance in the data management landscape. Although Croissant is implemented in JSON-LD rather than RDF, this represents a significant step forward in standardizing dataset metadata. The use of JSON-LD facilitates broad adoption and improved interoperability, laying the groundwork for future advancements in dataset metadata management.
 
-# Challenges and Limitations of the Current Approach**
+# Challenges and Limitations of the Current Approach
 
 ## A New Standardized Vocabulary
 
-Croissant introduces a controlled vocabulary aimed at providing a structured approach to dataset metadata[Akhtar2024-fo]. However, some of these vocabulary types are specific to the JSON-LD format and were not initially designed as RDF triples. This results in certain types of metadata that are unique to the Croissant implementation and may not align with more broadly accepted standards. The local nature of these types can lead to difficulties in standardizing and integrating metadata across different platforms. For example, the JSON-LD format’s flexibility allows for custom types and attributes that do not always map neatly onto established RDF vocabularies, potentially limiting interoperability with other metadata systems.
+Croissant introduces a controlled vocabulary aimed at providing a structured approach to dataset metadata[@Akhtar2024-fo]. However, some of these vocabulary types are specific to the JSON-LD format and were not initially designed as RDF triples. This results in certain types of metadata that are unique to the Croissant implementation and may not align with more broadly accepted standards. The local nature of these types can lead to difficulties in standardizing and integrating metadata across different platforms. For example, the JSON-LD format’s flexibility allows for custom types and attributes that do not always map neatly onto established RDF vocabularies, potentially limiting interoperability with other metadata systems.
 
 ## Croissant Schema Limitations
 
@@ -85,11 +85,11 @@ The conversion of JSON-LD metadata from Hugging Face to RDF in Turtle format inv
 
 Due to the sequential nature of data retrieval, loading the data was time-consuming. Only one dataset Croissant file could be retrieved at a time, extending the loading time to several hours. Managing this process carefully was crucial to minimize delays.
 
-After obtaining the JSON-LD metadata, it was converted to RDF Turtle format using the `rdflib` library[UnknownUnknown-wz]. `rdflib` enabled parsing of JSON-LD and serialization into Turtle format, ensuring compatibility with RDF standards.
+After obtaining the JSON-LD metadata, it was converted to RDF Turtle format using the `rdflib` library[@UnknownUnknown-wz]. `rdflib` enabled parsing of JSON-LD and serialization into Turtle format, ensuring compatibility with RDF standards.
 
 ## Loading into a Triple Store
 
-The RDF data was loaded into a triple store using two solutions: Qlever [Bast2017-mj] and Apache Jena Fuseki[UnknownUnknown-fa]. These tools were chosen for their robust support for RDF data and SPARQL querying capabilities.
+The RDF data was loaded into a triple store using two solutions: Qlever [@Bast2017-mj] and Apache Jena Fuseki[@UnknownUnknown-fa]. These tools were chosen for their robust support for RDF data and SPARQL querying capabilities.
 
 | Classes |
 | :---- |
@@ -165,10 +165,10 @@ This approach not only enhances the usability of dataset metadata but also foste
 
 The Hugging Face approach to dataset metadata, utilizing Croissant in JSON-LD format, represents a significant shift in how metadata is handled for machine learning datasets. To provide context and depth, it is useful to compare this approach with other established metadata standards, such as DataCite, DCAT, schema.org, and Ro-crate. Each of these standards offers different features and capabilities, impacting their applicability to various use cases.
 
-* **DataCite:** DataCite[Brase2009-ye] is a widely recognized metadata standard used primarily for publishing and citing research datasets. It emphasizes bibliographic information such as authorship, publication date, and access details. While DataCite is robust in providing citation metadata, it does not address the rich, detailed metadata needed for machine learning datasets, such as dataset structure, data types, or integration with computational frameworks.  
-* **DCAT (Data Catalog Vocabulary):** DCAT[Version_undated-uv] is a W3C standard designed to enhance the interoperability of data catalogs published on the web. It focuses on describing datasets and their distributions, making it useful for cataloging purposes. However, DCAT is less specialized in representing detailed machine learning metadata or supporting advanced querying capabilities, which are crucial for ML workflows.
+* **DataCite:** DataCite[@Brase2009-ye] is a widely recognized metadata standard used primarily for publishing and citing research datasets. It emphasizes bibliographic information such as authorship, publication date, and access details. While DataCite is robust in providing citation metadata, it does not address the rich, detailed metadata needed for machine learning datasets, such as dataset structure, data types, or integration with computational frameworks.  
+* **DCAT (Data Catalog Vocabulary):** DCAT[@Version_undated-uv] is a W3C standard designed to enhance the interoperability of data catalogs published on the web. It focuses on describing datasets and their distributions, making it useful for cataloging purposes. However, DCAT is less specialized in representing detailed machine learning metadata or supporting advanced querying capabilities, which are crucial for ML workflows.
 * **Schema.org:** Schema.org provides a broad vocabulary for structured data on the web, including schemas for datasets. The Croissant format builds on Schema.org's Dataset schema, extending it with additional metadata fields relevant to machine learning. While Schema.org offers a foundational structure for dataset descriptions, Croissant introduces more specialized features and semantics tailored to ML needs, such as detailed data types and integration with machine learning frameworks.
-* **Ro-Crate:** The RO-Crate[Soiland-Reyes2022-ys] (Research Object Crate) specification is designed to support the packaging and sharing of research data and its associated metadata. Similar to Croissant, RO-Crate focuses on organizing datasets in a way that facilitates reproducibility and sharing. RO-Crate's emphasis on research object packaging aligns with the goal of making datasets more accessible and reusable. However, Croissant extends beyond this by incorporating semantic typing and advanced querying capabilities through RDF and SPARQL, providing a more nuanced approach to metadata for machine learning.
+* **Ro-Crate:** The RO-Crate[@Soiland-Reyes2022-ys] (Research Object Crate) specification is designed to support the packaging and sharing of research data and its associated metadata. Similar to Croissant, RO-Crate focuses on organizing datasets in a way that facilitates reproducibility and sharing. RO-Crate's emphasis on research object packaging aligns with the goal of making datasets more accessible and reusable. However, Croissant extends beyond this by incorporating semantic typing and advanced querying capabilities through RDF and SPARQL, providing a more nuanced approach to metadata for machine learning.
 
 ## Hugging Face and Croissant Approach
 
