@@ -1,0 +1,11 @@
+cff-version: 1.1.0
+authors:
+- family-names: Steinberg
+  given-names: David
+  orcid: https://orcid.org/0000-0001-6683-2270
+- family-names: Bolleman
+  given-names: Jerven
+  orcid: https://orcid.org/00000-0002-7449-1266
+title: Bridging Machine Learning and Semantic Web: A Case Study on Converting Hugging Face Metadata to RDF
+version: paper
+date-released: 2024-12-03
